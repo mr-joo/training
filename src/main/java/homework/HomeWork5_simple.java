@@ -2,7 +2,7 @@ package homework;
 
 import java.util.Scanner;
 
-public class HomeWork5 {
+public class HomeWork5_simple {
     /*
     이자 계산기 만들기
     원금, 이자율, 기간
@@ -14,11 +14,9 @@ public class HomeWork5 {
 
         System.out.printf("원금을 입력해주세요 : ");
         int money = inputScanner.nextInt();
-        //System.out.println("원금 : " + money);
 
         System.out.printf("연이율을 입력해주세요 : ");
         double interestRate = inputScanner.nextDouble();
-        //System.out.println("연이율 : " + interestRate);
 
         System.out.printf("기간( 년)을 입력해주세요 : ");
         int period = inputScanner.nextInt();
