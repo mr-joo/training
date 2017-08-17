@@ -1,6 +1,6 @@
 package homework;
 
-public class HomeWork7 {
+public class HomeWork07 {
     /*
     계산기 프로그램
     덧셈 뺏셈 곱셈 나눗셈 연산
