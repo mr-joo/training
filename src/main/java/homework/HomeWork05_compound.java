@@ -26,6 +26,6 @@ public class HomeWork05_compound {
             double interest = (money * (interestRate/100));
             total = money + interest;
         }
-        System.out.printf("총 금액 : " +total);
+        System.out.printf("총 금액 :" +total);
     }
 }
