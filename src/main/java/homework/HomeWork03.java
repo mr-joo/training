@@ -2,7 +2,7 @@ package homework;
 
 import java.util.Scanner;
 
-public class HomeWork3 {
+public class HomeWork03 {
     /*
     입력된 문자열을 확인한다
     개수를 셀 문자를 선택한다
