@@ -2,7 +2,7 @@ package homework;
 
 import java.util.Scanner;
 
-public class HomeWork5_simple {
+public class HomeWork05_simple {
     /*
     이자 계산기 만들기
     원금, 이자율, 기간
