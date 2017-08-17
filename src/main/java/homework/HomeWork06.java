@@ -2,7 +2,7 @@ package homework;
 
 import java.util.Scanner;
 
-public class HomeWork6 {
+public class HomeWork06 {
     /*
     학점 계산기
     95 > A+ / A > 90 / 90 > B+ / 80 > B / 75 > c+ / 70 > c / 65 > D / 60 < F
