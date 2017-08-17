@@ -1,6 +1,6 @@
 package homework;
 
-public class HomeWork9 {
+public class HomeWork09 {
     public static void main(String[] args){
         class Credit {
             int score;
