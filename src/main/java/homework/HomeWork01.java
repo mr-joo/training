@@ -2,7 +2,7 @@ package homework;
 
 import java.util.Scanner;
 
-public class HomeWork1 {
+public class HomeWork01 {
     /*
     2단부터 9단까지
 
