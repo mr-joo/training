@@ -2,7 +2,7 @@ package homework;
 
 import java.util.Scanner;
 
-public class HomeWork5_compound {
+public class HomeWork05_compound {
     /*
     원금 이자율 기간(년)을 입력 받는다
     연 복리 계산
