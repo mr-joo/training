@@ -2,7 +2,7 @@ package homework;
 
 import java.util.Scanner;
 
-public class HomeWork4 {
+public class HomeWork04 {
     /*
     최대로 찍을 별 개수 입력
     입력한 수만큼 별을 찍는다
