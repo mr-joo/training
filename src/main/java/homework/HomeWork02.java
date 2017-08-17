@@ -2,7 +2,7 @@ package homework;
 
 import java.util.Scanner;
 
-public class HomeWork2 {
+public class HomeWork02 {
     /*
     별 개수 입력
     1개부터 시작해서 줄바꿈되어 한 개씩 증가
