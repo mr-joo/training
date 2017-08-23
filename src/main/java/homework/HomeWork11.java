@@ -6,8 +6,8 @@ public class HomeWork11 {
     add / sub / mul / div
      */
     static abstract class ParentCalc{
-        int a = 8;
-        int b = 3;
+        int a = 9;
+        int b = 2;
 
         abstract void print();
     }
