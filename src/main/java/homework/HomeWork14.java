@@ -49,13 +49,13 @@ public class HomeWork14 {
         }
     }
     public static void main(String[] args){
-        Case01 case01 = new Case01();
+        Gugudan case01 = new Case01();
         case01.print();
 
-        Case02 case02 = new Case02();
+        Gugudan case02 = new Case02();
         case02.print();
 
-        Case03 case03 = new Case03();
+        Gugudan case03 = new Case03();
         case03.print();
     }
 }
