@@ -10,12 +10,7 @@ public class HomeWork21 {
      */
     public static class OverLoading{
         public int rangeSum(int a){
-            int result = 0;
-
-            for (int i = 0; i <= a; i++){
-                result += i;
-            }
-            return result;
+            return rangeSum(0, a);
         }
 
         public int rangeSum(int a, int b){
@@ -32,7 +27,7 @@ public class HomeWork21 {
     public static void main(String[] args){
         OverLoading overLoading = new OverLoading();
 
-        System.out.println(overLoading.rangeSum(4));
+        System.out.println(overLoading.rangeSum(10));
         System.out.println(overLoading.rangeSum(3, 5));
     }
 }
