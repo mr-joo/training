@@ -36,9 +36,9 @@ public class HomeWork22 {
     public static void main(String[] args){
         Executor executor = new Executor();
 
-        Hwp hwp = new Hwp();
-        Doc doc = new Doc();
-        Pdf pdf = new Pdf();
+        Document hwp = new Hwp();
+        Document doc = new Doc();
+        Document pdf = new Pdf();
 
         executor.executor(hwp);
         executor.executor(doc);
