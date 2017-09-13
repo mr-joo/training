@@ -36,7 +36,7 @@ public class HomeWork23 {
         int indexOf = str.indexOf("o");
 
         // String 길이가 0이라면 true, 아니면 false를 반환
-        //boolean empty = str.isEmpty();
+        boolean empty = str.isEmpty();
 
         // 입력받은 문자열의 마지막 인덱스를 반환
         int lastIndex = str.lastIndexOf("world");
