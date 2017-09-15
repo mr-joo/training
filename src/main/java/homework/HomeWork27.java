@@ -76,39 +76,39 @@ public class HomeWork27 {
         int count = 0;
 
         private PhoneInfo basicInfo(){
-            System.out.println("이름 : ");
+            System.out.print("이름 : ");
             String name = input.nextLine();
 
-            System.out.println("전화번호 : ");
+            System.out.print("전화번호 : ");
             String phoneNumber = input.nextLine();
 
             return new PhoneInfo(name, phoneNumber);
         }
 
         private PhoneInfo univInfo(){
-            System.out.println("이름 : ");
+            System.out.print("이름 : ");
             String name = input.nextLine();
 
-            System.out.println("전화번호 : ");
+            System.out.print("전화번호 : ");
             String phoneNumber = input.nextLine();
 
-            System.out.println("전공 : ");
+            System.out.print("전공 : ");
             String major = input.nextLine();
 
-            System.out.println("학년 : ");
-            int year = input.nextInt();
+            System.out.print("학년 : ");
+            int year = Integer.parseInt(input.nextLine());
 
             return new PhoneUnivInfo(name, phoneNumber, major, year);
         }
 
         private PhoneInfo companyInfo(){
-            System.out.println("이름 : ");
+            System.out.print("이름 : ");
             String name = input.nextLine();
 
-            System.out.println("전화번호 : ");
+            System.out.print("전화번호 : ");
             String phoneNumber = input.nextLine();
 
-            System.out.println("회사 : ");
+            System.out.print("회사 : ");
             String company = input.nextLine();
 
             return new PhoneCompanyInfo(name, phoneNumber, company);
@@ -117,13 +117,12 @@ public class HomeWork27 {
         public void input() throws MenuInputException{
             System.out.println("데이터 입력을 시작합니다..");
             System.out.println("1. 일반, 2. 대학 3. 회사");
-            System.out.println("선택 >> ");
-            int choice = input.nextInt();
+            System.out.print("선택 >> ");
+            int choice = Integer.parseInt(input.nextLine());
             PhoneInfo info = null;
 
             if (choice < InputSelect.BASIC || choice > InputSelect.COMPANY){
-                MenuInputException menuInputException = new MenuInputException(choice);
-                throw menuInputException;
+                throw  new MenuInputException(choice);
             }
 
                 switch (choice){
@@ -146,7 +145,7 @@ public class HomeWork27 {
         public void search(){
             System.out.println("데이터 검색을 시작합니다.");
 
-            System.out.println("이름 : ");
+            System.out.print("이름 : ");
             String name = input.nextLine();
 
             int searchedIndex = getIndexOf(name);
@@ -155,12 +154,13 @@ public class HomeWork27 {
                 phoneInfos[searchedIndex].printData();
             }
             System.out.println("데이터 검색이 완료되었습니다.");
+            System.out.println("");
         }
 
         public void delete(){
             System.out.println("데이터 삭제를 시작합니다..");
 
-            System.out.println("이름 : ");
+            System.out.print("이름 : ");
             String name = input.nextLine();
 
             int searchedIndex = getIndexOf(name);
@@ -176,12 +176,12 @@ public class HomeWork27 {
             }
             phoneInfos = newPhoneInfos;
             System.out.println("데이터 삭제가 완료되었습니다.");
+            System.out.println("");
         }
 
         private int getIndexOf(String name){
-            PhoneBookManager phoneBookManager = new PhoneBookManager();
             for (int i = 0; i < count; i++){
-                if (phoneInfos[i].name == name){
+                if (phoneInfos[i].name.equals(name)){
                     return i;
                 }
             }
@@ -196,7 +196,7 @@ public class HomeWork27 {
             System.out.println("2. 데이터 검색");
             System.out.println("3. 데이터 삭제");
             System.out.println("4. 프로그램 종료");
-            System.out.println("선택 : ");
+            System.out.print("선택 : ");
         }
     }
 
@@ -210,11 +210,10 @@ public class HomeWork27 {
         while (true){
             try {
                 select.select();
-                choice = input.nextInt();
+                choice = Integer.parseInt(input.nextLine());
 
                 if (choice < Menu.INPUT || choice > Menu.END){
-                    MenuInputException menuInputException = new MenuInputException(choice);
-                    throw menuInputException;
+                    throw new MenuInputException(choice);
                 }
 
                 switch (choice){
