@@ -11,18 +11,17 @@ public class HomeWork35 {
      */
     static class Collatz {
         public int collatz(int num) {
-            int answer = 0;
-
-            for (int i = num; i != 1; i = i / 2){
-                if (i % 2 == 0){
-                    i = i;
+            for (int i = 1; i <= 500; i++){
+                if (num % 2 == 0){
+                    num = num / 2;
                 }else {
-                    i = (i * 3) + 1;
-                    answer++;
+                    num = (num * 3) + 1;
                 }
-                answer++;
+                if (num == 1){
+                    return i;
+                }
             }
-            return answer;
+            return -1;
         }
 
         // 아래는 테스트로 출력해 보기 위한 코드입니다.
