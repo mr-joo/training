@@ -12,9 +12,9 @@ public class HomeWork32 {
             int sl = word.length();
 
             if (sl % 2 == 1){
-                System.out.println(word.charAt(sl/2));
+                System.out.println((word.charAt(sl/2)));
             }else {
-                System.out.println(word.charAt((sl/2)-1));
+                System.out.println((word.charAt((sl/2)-1) + "" + word.charAt(sl/2)));
             }
             return "";
         }
@@ -23,5 +23,6 @@ public class HomeWork32 {
     public static void main(String[] args){
             StringExercise se = new StringExercise();
             System.out.println(se.getMiddle("power"));
+            System.out.println(se.getMiddle("test"));
     }
 }
