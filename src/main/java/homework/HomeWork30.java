@@ -10,7 +10,7 @@ public class HomeWork30 {
         String findKim(String[] seoul){
             int x = 0;
             for (int i = 0; i < seoul.length; i++){
-                if (seoul[i].equals("Kim")){
+                if ("Kim".equals(seoul[i])){
                     x = i;
                 }
             }
