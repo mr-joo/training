@@ -10,11 +10,11 @@ public class HomeWork31 {
     static class SumMatrix{
 
         int[][] sumMatrix(int[][] A, int[][] B){
-
             int[][] answer = {{0, 0}, {0, 0}};
+            int sl = A.length;
 
-            for (int i = 0; i < A.length; i++) {
-               for (int j = 0; j < A.length; j++){
+            for (int i = 0; i < sl; i++) {
+               for (int j = 0; j < sl; j++){
                    answer[i][j] = (A[i][j] + B[i][j]);
                }
             }
