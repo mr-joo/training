@@ -7,10 +7,10 @@ public class HomeWork30 {
     seoul에 "Kim"은 오직 한 번만 나타나며 잘못된 값이 입력되는 경우는 없습니다.
     */
     static public class FindKim{
-        public String findKim(String[] seoul){
+        String findKim(String[] seoul){
             int x = 0;
             for (int i = 0; i < seoul.length; i++){
-                if (seoul[i] == "Kim"){
+                if (seoul[i].equals("Kim")){
                     x = i;
                 }
             }
