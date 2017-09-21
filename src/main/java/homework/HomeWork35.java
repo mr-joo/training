@@ -10,8 +10,8 @@ public class HomeWork35 {
     단, 500번을 반복해도 1이 되지 않는다면 –1을 반환해 주세요.
      */
     static class Collatz {
-        public int collatz(int num) {
-            for (int i = 1; i <= 500; i++){
+        public int collatz(long num) {
+            for (int i = 1; i < 501; i++){
                 if (num % 2 == 0){
                     num = num / 2;
                 }else {
