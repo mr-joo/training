@@ -1,5 +1,6 @@
 package homework;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class HomeWork27 {
@@ -13,13 +14,13 @@ public class HomeWork27 {
         int BASIC = 1, UNIV = 2, COMPANY = 3;
     }
 
-    public static class MenuInputException extends Exception{
+    static class MenuInputException extends Exception{
         int wrongChoice;
 
-        public MenuInputException(int choice){
+        MenuInputException(int choice){
             wrongChoice = choice;
         }
-        public void printException(){
+        void printException(){
             System.out.println(wrongChoice + "에 해당하는 선택은 존재하지 않습니다.");
         }
     }
@@ -28,7 +29,7 @@ public class HomeWork27 {
         String name;
         String phoneNumber;
 
-        public PhoneInfo(String name, String num) {
+        PhoneInfo(String name, String num) {
             this.name = name;
             phoneNumber = num;
         }
@@ -37,13 +38,25 @@ public class HomeWork27 {
             System.out.println("이름 : " + name);
             System.out.println("전화번호 : " + phoneNumber);
         }
+
+        public int HashCode(){
+            return name.hashCode();
+        }
+
+        public boolean equals(Object obj){
+            PhoneInfo cmp = (PhoneInfo)obj;
+            if (name.compareTo(cmp.name) == 0)
+                return true;
+            else
+                return false;
+        }
     }
 
     public static class PhoneUnivInfo extends PhoneInfo{
         String major;
         int year;
 
-        public PhoneUnivInfo(String name, String num, String major, int year){
+        PhoneUnivInfo(String name, String num, String major, int year){
             super(name, num);
             this.major = major;
             this.year = year;
@@ -59,7 +72,7 @@ public class HomeWork27 {
     public static class PhoneCompanyInfo extends PhoneInfo{
         String company;
 
-        public PhoneCompanyInfo(String name, String num, String company){
+        PhoneCompanyInfo(String name, String num, String company){
             super(name, num);
             this.company = company;
         }
@@ -71,9 +84,10 @@ public class HomeWork27 {
     }
 
     public static class PhoneBookManager{
-        public static final int NOT_FOUND = -1;
+        static final int NOT_FOUND = -1;
         PhoneInfo[] phoneInfos = new PhoneInfo[100];
         int count = 0;
+        HashSet<PhoneInfo> phoneInfoHashSet = new HashSet<PhoneInfo>();
 
         private PhoneInfo basicInfo(){
             System.out.print("이름 : ");
@@ -114,7 +128,7 @@ public class HomeWork27 {
             return new PhoneCompanyInfo(name, phoneNumber, company);
         }
 
-        public void input() throws MenuInputException{
+        void input() throws MenuInputException{
             System.out.println("데이터 입력을 시작합니다..");
             System.out.println("1. 일반, 2. 대학 3. 회사");
             System.out.print("선택 >> ");
@@ -137,12 +151,17 @@ public class HomeWork27 {
                         break;
                 }
 
-            phoneInfos[count++] = info;
-            System.out.println("데이터 입력이 완료되었습니다.");
+            //phoneInfos[count++] = info;
+
+            boolean isAdd = phoneInfoHashSet.add(info);
+                if (isAdd)
+                    System.out.println("데이터 입력이 완료되었습니다.");
+                else
+                    System.out.println("이미 저장된 데이터입니다.");
             System.out.println("");
         }
 
-        public void search(){
+        void search(){
             System.out.println("데이터 검색을 시작합니다.");
 
             System.out.print("이름 : ");
@@ -154,10 +173,11 @@ public class HomeWork27 {
                 phoneInfos[searchedIndex].printData();
             }
             System.out.println("데이터 검색이 완료되었습니다.");
+
             System.out.println("");
         }
 
-        public void delete(){
+        void delete(){
             System.out.println("데이터 삭제를 시작합니다..");
 
             System.out.print("이름 : ");
@@ -176,6 +196,7 @@ public class HomeWork27 {
             }
             phoneInfos = newPhoneInfos;
             System.out.println("데이터 삭제가 완료되었습니다.");
+
             System.out.println("");
         }
 
@@ -190,7 +211,7 @@ public class HomeWork27 {
     }
 
     public static class Select {
-        public void select(){
+        void select(){
             System.out.println("선택하세요...");
             System.out.println("1. 데이터 입력");
             System.out.println("2. 데이터 검색");
@@ -199,7 +220,6 @@ public class HomeWork27 {
             System.out.print("선택 : ");
         }
     }
-
 
     public static void main(String[] args){
         int choice = 0;
