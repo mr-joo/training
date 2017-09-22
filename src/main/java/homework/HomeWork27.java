@@ -1,6 +1,7 @@
 package homework;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class HomeWork27 {
@@ -39,14 +40,15 @@ public class HomeWork27 {
             System.out.println("전화번호 : " + phoneNumber);
         }
 
-        public int HashCode(){
+        public int hashCode(){
             return name.hashCode();
         }
 
         public boolean equals(Object obj){
             PhoneInfo cmp = (PhoneInfo)obj;
-            if (name.compareTo(cmp.name) == 0)
+            if (name.compareTo(cmp.name) == 0){
                 return true;
+            }
             else
                 return false;
         }
@@ -84,9 +86,9 @@ public class HomeWork27 {
     }
 
     public static class PhoneBookManager{
-        static final int NOT_FOUND = -1;
-        PhoneInfo[] phoneInfos = new PhoneInfo[100];
-        int count = 0;
+        //static final int NOT_FOUND = -1;
+        //PhoneInfo[] phoneInfos = new PhoneInfo[100];
+        //int count = 0;
         HashSet<PhoneInfo> phoneInfoHashSet = new HashSet<PhoneInfo>();
 
         private PhoneInfo basicInfo(){
@@ -154,8 +156,9 @@ public class HomeWork27 {
             //phoneInfos[count++] = info;
 
             boolean isAdd = phoneInfoHashSet.add(info);
-                if (isAdd)
+                if (isAdd){
                     System.out.println("데이터 입력이 완료되었습니다.");
+                }
                 else
                     System.out.println("이미 저장된 데이터입니다.");
             System.out.println("");
@@ -167,14 +170,22 @@ public class HomeWork27 {
             System.out.print("이름 : ");
             String name = input.nextLine();
 
+            /* Ver 03
             int searchedIndex = getIndexOf(name);
 
             if (searchedIndex != NOT_FOUND){
                 phoneInfos[searchedIndex].printData();
             }
             System.out.println("데이터 검색이 완료되었습니다.");
+            */
+            PhoneInfo information = getSearchData(name);
 
-            System.out.println("");
+            if (information == null){
+                System.out.println("해당 데이터가 존재하지 않습니다.");
+            }else {
+                information.printData();
+                System.out.println("데이터 검색이 완료되었습니다.\n");
+            }
         }
 
         void delete(){
@@ -183,6 +194,7 @@ public class HomeWork27 {
             System.out.print("이름 : ");
             String name = input.nextLine();
 
+            /* Ver 03
             int searchedIndex = getIndexOf(name);
 
             PhoneInfo[] newPhoneInfos = new PhoneInfo[100];
@@ -196,18 +208,43 @@ public class HomeWork27 {
             }
             phoneInfos = newPhoneInfos;
             System.out.println("데이터 삭제가 완료되었습니다.");
+            */
 
-            System.out.println("");
+            Iterator<PhoneInfo> itr = phoneInfoHashSet.iterator();
+
+            while (itr.hasNext()){
+                PhoneInfo curInfo = itr.next();
+                if (name.compareTo(curInfo.name) == 0){
+                    itr.remove();
+                    System.out.println("데이터 삭제가 완료되었습니다.\n");
+                    return;
+                }
+            }
+            System.out.println("해당 데이터가 존재하지 않습니다.");
         }
 
-        private int getIndexOf(String name){
+
+        private PhoneInfo getSearchData(String name){
+            /*
             for (int i = 0; i < count; i++){
                 if (phoneInfos[i].name.equals(name)){
                     return i;
                 }
             }
             return -1;
+            */
+
+            Iterator<PhoneInfo> itr = phoneInfoHashSet.iterator();
+            while (itr.hasNext()){
+                PhoneInfo curInfo = itr.next();
+                if (name.compareTo(curInfo.name) == 0){
+                    //System.out.println("데이터 검색이 완료되었습니다.\n");
+                    return curInfo;
+                }
+            }
+            return null;
         }
+
     }
 
     public static class Select {
