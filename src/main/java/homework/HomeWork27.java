@@ -86,9 +86,6 @@ public class HomeWork27 {
     }
 
     public static class PhoneBookManager{
-        //static final int NOT_FOUND = -1;
-        //PhoneInfo[] phoneInfos = new PhoneInfo[100];
-        //int count = 0;
         HashSet<PhoneInfo> phoneInfoHashSet = new HashSet<PhoneInfo>();
 
         private PhoneInfo basicInfo(){
@@ -153,8 +150,6 @@ public class HomeWork27 {
                         break;
                 }
 
-            //phoneInfos[count++] = info;
-
             boolean isAdd = phoneInfoHashSet.add(info);
                 if (isAdd){
                     System.out.println("데이터 입력이 완료되었습니다.");
@@ -170,14 +165,6 @@ public class HomeWork27 {
             System.out.print("이름 : ");
             String name = input.nextLine();
 
-            /* Ver 03
-            int searchedIndex = getIndexOf(name);
-
-            if (searchedIndex != NOT_FOUND){
-                phoneInfos[searchedIndex].printData();
-            }
-            System.out.println("데이터 검색이 완료되었습니다.");
-            */
             PhoneInfo information = getSearchData(name);
 
             if (information == null){
@@ -194,22 +181,6 @@ public class HomeWork27 {
             System.out.print("이름 : ");
             String name = input.nextLine();
 
-            /* Ver 03
-            int searchedIndex = getIndexOf(name);
-
-            PhoneInfo[] newPhoneInfos = new PhoneInfo[100];
-            int newIndex = 0;
-
-            for (int i = 0; i < phoneInfos.length; i++){
-                if (searchedIndex == i){
-                    continue;
-                }
-                newPhoneInfos[newIndex++] = phoneInfos[i];
-            }
-            phoneInfos = newPhoneInfos;
-            System.out.println("데이터 삭제가 완료되었습니다.");
-            */
-
             Iterator<PhoneInfo> itr = phoneInfoHashSet.iterator();
 
             while (itr.hasNext()){
@@ -225,20 +196,10 @@ public class HomeWork27 {
 
 
         private PhoneInfo getSearchData(String name){
-            /*
-            for (int i = 0; i < count; i++){
-                if (phoneInfos[i].name.equals(name)){
-                    return i;
-                }
-            }
-            return -1;
-            */
-
             Iterator<PhoneInfo> itr = phoneInfoHashSet.iterator();
             while (itr.hasNext()){
                 PhoneInfo curInfo = itr.next();
                 if (name.compareTo(curInfo.name) == 0){
-                    //System.out.println("데이터 검색이 완료되었습니다.\n");
                     return curInfo;
                 }
             }
