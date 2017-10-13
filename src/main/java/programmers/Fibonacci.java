@@ -21,7 +21,7 @@ public class Fibonacci {
     // 아래는 테스트로 출력해 보기 위한 코드입니다.
     public static void main(String[] args) {
         Fibonacci c = new Fibonacci();
-        int testCase = 5;
+        int testCase = 3;
         System.out.println(c.fibonacci(testCase));
     }
 }
