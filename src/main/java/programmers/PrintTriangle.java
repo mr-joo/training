@@ -8,14 +8,22 @@ printTriangle이 return하는 String은 개행문자('\n')로 끝나야 합니�
 
 public class PrintTriangle {
     public String printTriangle(int num){
+        String str = "";
 
         for (int line = 1; line <= num; line++){
             for (int print = 1; print <= line; print++){
-                System.out.print("*");
+                str += "*";
             }
-            System.out.println("");
+            str += "\n";
         }
-        return "";
+
+        for (int line = 1; line < num; line++){
+            for (int reverse = num - 1; reverse >= line ; reverse--){
+                str += "*";
+            }
+            str += "\n";
+        }
+        return str;
     }
 
     // 아래는 테스트로 출력해 보기 위한 코드입니다.
