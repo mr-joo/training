@@ -26,9 +26,38 @@ public class PrintTriangle {
         return str;
     }
 
+
+    public String printRhombus(int num){
+        String str = "";
+
+        for (int line = 1; line <= num; line++){
+            for (int blank = num - 1; blank >= line; blank--){
+                str += " ";
+            }
+
+            for (int print = 1; print <= (line * 2) - 1; print++){
+                str += "*";
+            }
+            str += "\n";
+        }
+
+        for (int line = 1; line < num; line++){
+            for (int blank = 1; blank <= line; blank++){
+                str += " ";
+            }
+
+            for (int reverse = ((num - 1) * 2) - 1; reverse >= (line * 2) - 1; reverse--){
+                str += "*";
+            }
+            str += "\n";
+        }
+        return str;
+    }
+
     // 아래는 테스트로 출력해 보기 위한 코드입니다.
     public static void main(String[] args) {
         PrintTriangle pt = new PrintTriangle();
-        System.out.println( pt.printTriangle(3) );
+        System.out.println(pt.printTriangle(3));
+        System.out.println(pt.printRhombus(3));
     }
 }
