@@ -6,6 +6,8 @@ getMiddle메소드는 하나의 단어를 입력 받습니다.
 예를들어 입력받은 단어가 power이라면 w를 반환하면 되고, 입력받은 단어가 test라면 es를 반환하면 됩니다.
  */
 
+import java.util.Calendar;
+
 public class GetMiddle {
     String getMiddle(String word){
         int sl = word.length();
